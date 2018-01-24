@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "oivywondust",
+  "ingredients": [
+    {
+      "item": "mores:eukavoynt_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:draxate_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:oivywon_dust",
+    "data": 0,
+    "count": 1
+  }
+}

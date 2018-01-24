@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "vukanitedust",
+  "ingredients": [
+    {
+      "item": "mores:ayzanite_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:iturite_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:vukanite_dust",
+    "data": 0,
+    "count": 1
+  }
+}

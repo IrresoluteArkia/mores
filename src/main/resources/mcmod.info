@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mores",
+  "name": "Mores",
+  "description": "Adds more ores to Minecraft... I don't really know what else you were expecting...",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["IrresoluteArkia"],
+  "credits": "The Mojang team for making Minecraft",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

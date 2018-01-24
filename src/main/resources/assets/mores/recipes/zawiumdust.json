@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "zawiumdust",
+  "ingredients": [
+    {
+      "item": "mores:sivenium_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:aurine_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:zawium_dust",
+    "data": 0,
+    "count": 1
+  }
+}

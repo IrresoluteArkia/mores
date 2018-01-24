@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "duxiretedust",
+  "ingredients": [
+    {
+      "item": "mores:nodemite_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:draxate_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:duxirete_dust",
+    "data": 0,
+    "count": 1
+  }
+}

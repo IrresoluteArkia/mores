@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "uamafdust",
+  "ingredients": [
+    {
+      "item": "mores:sivenium_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:eukavoynt_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:uamaf_dust",
+    "data": 0,
+    "count": 1
+  }
+}

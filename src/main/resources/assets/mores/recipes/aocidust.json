@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shapeless",
+  "group": "aocidust",
+  "ingredients": [
+    {
+      "item": "mores:draxate_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:ayzanite_dust",
+      "data": 0,
+      "count": 1
+    },
+    {
+      "item": "mores:phantom_shard",
+      "data": 0,
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "mores:aoci_dust",
+    "data": 0,
+    "count": 1
+  }
+}
