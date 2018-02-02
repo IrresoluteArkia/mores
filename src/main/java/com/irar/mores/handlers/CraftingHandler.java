@@ -207,6 +207,7 @@ public class CraftingHandler {
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1}, new int[] {4, 7}, ItemHandler.AlloyShovel));
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 2, 5}, new int[] {4, 7}, ItemHandler.AlloyAxe));
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 3}, new int[] {4, 7}, ItemHandler.AlloyAxe));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 4}, new int[] {7}, ItemHandler.AlloySword));
 		
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.PhantomOre), new Object[]{"PP", "PP", 'P', ItemHandler.PhantomShard});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore2"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.NetherPhantomOre), new Object[]{" P ", "PNP", " P ", 'P', ItemHandler.PhantomShard, 'N', Blocks.NETHERRACK});

@@ -211,6 +211,7 @@ public class ItemHandler {
 	public static Item AlloyPickaxe;
 	public static Item AlloyShovel;
 	public static Item AlloyAxe;
+	public static Item AlloySword;
 	
 	public static void init(){
 		PhantomShard = new ItemIngot("phantom_shard");
@@ -392,6 +393,7 @@ public class ItemHandler {
 		AlloyPickaxe = new com.irar.mores.items.AlloyPickaxe("alloy_pickaxe");
 		AlloyShovel = new com.irar.mores.items.AlloyShovel("alloy_shovel");
 		AlloyAxe = new com.irar.mores.items.AlloyAxe("alloy_axe");
+		AlloySword = new com.irar.mores.items.AlloySword("alloy_sword");
 		
 		allItems.add(PhantomShard);
 		 allItems.add(BlackHoleFragment);
@@ -572,6 +574,7 @@ public class ItemHandler {
 		 allItems.add(AlloyPickaxe);
 		 allItems.add(AlloyShovel);
 		 allItems.add(AlloyAxe);
+		 allItems.add(AlloySword);
 		 
 		 if(Loader.isModLoaded("iron")){
 			 DetriminiumSword = new MtlSword("detriminium_sword", ToolMaterialHandler.DETRIMINIUM);

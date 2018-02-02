@@ -28,6 +28,8 @@ public class AlloyCrafting implements IRecipe{
 					}
 					num++;
 				}
+			}else if(!stack.isEmpty()){
+				return false;
 			}
 		}
 		return num == 2;

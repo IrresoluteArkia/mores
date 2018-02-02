@@ -7,6 +7,7 @@ import com.irar.mores.Ref;
 import com.irar.mores.handlers.ItemHandler;
 import com.irar.mores.items.AlloyIngot;
 import com.irar.mores.items.AlloyPickaxe;
+import com.irar.mores.items.AlloySword;
 import com.irar.mores.items.AlloyTool;
 import com.irar.mores.items.ItemIngot;
 
@@ -82,7 +83,13 @@ public class ToolCrafting implements IRecipe{
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		ItemStack stack = inv.getStackInSlot(alloys[0]);
 		int value = getValue(stack);
-		return AlloyTool.withValue((AlloyTool) result, value);
+		if(result instanceof AlloyTool) {
+			return AlloyTool.withValue((AlloyTool) result, value);
+		}else if(result instanceof AlloySword) {
+			return AlloySword.withValue((AlloySword) result, value);
+		}else {
+			return ItemStack.EMPTY;
+		}
 	}
 
 	private int getValue(ItemStack stack) {
