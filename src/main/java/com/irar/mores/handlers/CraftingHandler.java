@@ -1,5 +1,8 @@
 package com.irar.mores.handlers;
 
+import com.irar.mores.crafting.AlloyCrafting;
+import com.irar.mores.crafting.ToolCrafting;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
@@ -9,6 +12,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -198,6 +202,11 @@ public class CraftingHandler {
 		
 		
 		
+		ForgeRegistries.RECIPES.register(new AlloyCrafting());
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 2}, new int[] {4, 7}, ItemHandler.AlloyPickaxe));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1}, new int[] {4, 7}, ItemHandler.AlloyShovel));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 2, 5}, new int[] {4, 7}, ItemHandler.AlloyAxe));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 3}, new int[] {4, 7}, ItemHandler.AlloyAxe));
 		
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.PhantomOre), new Object[]{"PP", "PP", 'P', ItemHandler.PhantomShard});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore2"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.NetherPhantomOre), new Object[]{" P ", "PNP", " P ", 'P', ItemHandler.PhantomShard, 'N', Blocks.NETHERRACK});

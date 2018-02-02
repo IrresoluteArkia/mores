@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 public class ItemIngot extends Item {
 	
 	boolean isBlackMetal = false;
+	public int value = 0;
 	
 	public ItemIngot(String name){
 		super();
@@ -30,7 +31,11 @@ public class ItemIngot extends Item {
 		this.isBlackMetal = isBlackMetal;
 	}
 	
-    @Override
+    public ItemIngot(String string, int i) {
+		this(string);
+		this.value = i;
+	}
+	@Override
     public void addInformation(ItemStack stack, World player, List<String> list, ITooltipFlag par4)
     {
     	if(this.isBlackMetal){

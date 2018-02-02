@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mores:items/alloy_axe",
+        "layer1": "mores:items/alloy_axe_overlay"
+    }
+}

@@ -33,6 +33,7 @@ public class ToolMaterialHandler {
 	public static ToolMaterial IVIO = EnumHelper.addToolMaterial("ivio", 6, 2000, 7.0F, 12.0F, enchantability);
 	public static ToolMaterial ETERIXUD = EnumHelper.addToolMaterial("eterixud", 6, 6000, 10.0F, 15.0F, enchantability);
 	public static ToolMaterial NOWYVIO = EnumHelper.addToolMaterial("nowyvio", 6, 5900, 15.0F, 10.0F, enchantability);
+	public static ToolMaterial ALLOY = EnumHelper.addToolMaterial("alloy", 1, 1000, 1.0F, 1.0F, 10);
 
 	public static ToolMaterial DETRIMINIUM = EnumHelper.addToolMaterial("detriminium", 18, 50000, 300.0F, 2000.0F, 2750);
 }

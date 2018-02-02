@@ -9,8 +9,10 @@ import com.irar.mores.items.MtlPickaxe;
 import com.irar.mores.items.MtlShovel;
 import com.irar.mores.items.MtlSword;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -205,32 +207,37 @@ public class ItemHandler {
 	public static Item DetriminiumShovel;
 	public static Item DetriminiumAxe;
 	
+	public static Item AlloyIngot;
+	public static Item AlloyPickaxe;
+	public static Item AlloyShovel;
+	public static Item AlloyAxe;
+	
 	public static void init(){
 		PhantomShard = new ItemIngot("phantom_shard");
 		BlackHoleFragment = new ItemIngot("black_hole_fragment");
 		BlackHoleShard = new ItemIngot("black_hole_shard");
-		BydoomIngot = new ItemIngot("bydoom_ingot");
-		AuduIngot = new ItemIngot("audu_ingot");
-		AryxiIngot = new ItemIngot("aryxi_ingot");
+		BydoomIngot = new ItemIngot("bydoom_ingot", 140);
+		AuduIngot = new ItemIngot("audu_ingot", 377);
+		AryxiIngot = new ItemIngot("aryxi_ingot", 514);
 		AtaruIngot = new ItemIngot("ataru_ingot");
-		UokuwixasiIngot = new ItemIngot("uokuwixasi_ingot");
-		AikarIngot = new ItemIngot("aikar_ingot");
-		AociIngot = new ItemIngot("aoci_ingot");
-		DuxireteIngot = new ItemIngot("duxirete_ingot");
-		IrineIngot = new ItemIngot("irine_ingot");
-		JosawrilineIngot = new ItemIngot("josawriline_ingot");
-		MurolIngot = new ItemIngot("murol_ingot");
-		OdeznumIngot = new ItemIngot("odeznum_ingot");
-		OiviIngot = new ItemIngot("oivi_ingot");
-		OivywonIngot = new ItemIngot("oivywon_ingot");
-		PetuxoIngot = new ItemIngot("petuxo_ingot");
-		RoIngot = new ItemIngot("ro_ingot");
-		SusimenIngot = new ItemIngot("susimen_ingot");
-		UamafIngot = new ItemIngot("uamaf_ingot");
-		VodriciteIngot = new ItemIngot("vodricite_ingot");
-		VukaniteIngot = new ItemIngot("vukanite_ingot");
-		ZanineIngot = new ItemIngot("zanine_ingot");
-		ZawiumIngot = new ItemIngot("zawium_ingot");
+		UokuwixasiIngot = new ItemIngot("uokuwixasi_ingot", 7);
+		AikarIngot = new ItemIngot("aikar_ingot", 360);
+		AociIngot = new ItemIngot("aoci_ingot", 306);
+		DuxireteIngot = new ItemIngot("duxirete_ingot", 380);
+		IrineIngot = new ItemIngot("irine_ingot", 137);
+		JosawrilineIngot = new ItemIngot("josawriline_ingot", 497);
+		MurolIngot = new ItemIngot("murol_ingot", 86);
+		OdeznumIngot = new ItemIngot("odeznum_ingot", 81);
+		OiviIngot = new ItemIngot("oivi_ingot", 157);
+		OivywonIngot = new ItemIngot("oivywon_ingot", 737);
+		PetuxoIngot = new ItemIngot("petuxo_ingot", 517);
+		RoIngot = new ItemIngot("ro_ingot", 443);
+		SusimenIngot = new ItemIngot("susimen_ingot", 301);
+		UamafIngot = new ItemIngot("uamaf_ingot", 438);
+		VodriciteIngot = new ItemIngot("vodricite_ingot", 78);
+		VukaniteIngot = new ItemIngot("vukanite_ingot", 83);
+		ZanineIngot = new ItemIngot("zanine_ingot", 66);
+		ZawiumIngot = new ItemIngot("zawium_ingot", 61);
 		IsaxiwukouIngot = new ItemIngot("isaxiwukou_ingot", true);
 		EninazIngot = new ItemIngot("eninaz_ingot", true);
 		EniriIngot = new ItemIngot("eniri_ingot", true);
@@ -380,6 +387,11 @@ public class ItemHandler {
 		IvioAxe = new MtlAxe("ivio_axe", ToolMaterialHandler.IVIO);
 		EterixudAxe = new MtlAxe("eterixud_axe", ToolMaterialHandler.ETERIXUD);
 		NowyvioAxe = new MtlAxe("nowyvio_axe", ToolMaterialHandler.NOWYVIO);
+		
+		AlloyIngot = new com.irar.mores.items.AlloyIngot("alloy_ingot");
+		AlloyPickaxe = new com.irar.mores.items.AlloyPickaxe("alloy_pickaxe");
+		AlloyShovel = new com.irar.mores.items.AlloyShovel("alloy_shovel");
+		AlloyAxe = new com.irar.mores.items.AlloyAxe("alloy_axe");
 		
 		allItems.add(PhantomShard);
 		 allItems.add(BlackHoleFragment);
@@ -556,6 +568,11 @@ public class ItemHandler {
 		 allItems.add(EterixudAxe);
 		 allItems.add(NowyvioAxe);
 		 
+		 allItems.add(AlloyIngot);
+		 allItems.add(AlloyPickaxe);
+		 allItems.add(AlloyShovel);
+		 allItems.add(AlloyAxe);
+		 
 		 if(Loader.isModLoaded("iron")){
 			 DetriminiumSword = new MtlSword("detriminium_sword", ToolMaterialHandler.DETRIMINIUM);
 			 DetriminiumPick = new MtlPickaxe("detriminium_pickaxe", ToolMaterialHandler.DETRIMINIUM);
@@ -582,6 +599,10 @@ public class ItemHandler {
 	
 	public static void registerRender(Item item){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		
+		if(item instanceof IItemColor) {
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) item, item);
+		}
 	}
 
 
