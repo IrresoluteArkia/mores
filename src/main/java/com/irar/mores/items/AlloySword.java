@@ -66,10 +66,10 @@ public class AlloySword extends ItemSword implements IItemColor{
 	public String getItemStackDisplayName(ItemStack stack) {
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			Random r = new Random(stack.getTagCompound().getInteger("INGOT_DATA") + toInt("name"));
-			String name = AlloyName.getRandomName(r);
+			String name = AlloyName.getRandomName(r) + " Sword";
 			return name;
 		}
-		return "Alloy";
+		return "Alloy Sword";
 	}
 
 	public static ItemStack withValue(AlloySword item, int value) {
@@ -121,7 +121,7 @@ public class AlloySword extends ItemSword implements IItemColor{
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			int num = stack.getTagCompound().getInteger("INGOT_DATA");
 			Random r = new Random(num + toInt("damage"));
-			return Math.max(10, (num * 100) + r.nextInt(200) - 100);
+			return Math.max(10, (num * 10) + r.nextInt(200) - 100);
 		}
 		return 1;
 	}
@@ -133,7 +133,7 @@ public class AlloySword extends ItemSword implements IItemColor{
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
         {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", (double)getDamageVsEntity(stack), 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Tool modifier", getDamageVsEntity(stack)  * 3.0F, 0));
             multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", (double)getAttackSpeed(stack), 0));
         }
 
@@ -142,7 +142,7 @@ public class AlloySword extends ItemSword implements IItemColor{
 
 	private double getAttackSpeed(ItemStack stack) {
 		//TODO: optimize this
-		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+		/*if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			int num = stack.getTagCompound().getInteger("INGOT_DATA");
 			Random r = new Random(num + toInt("attackspeed"));
 			num = Math.max(num, 1);
@@ -152,7 +152,13 @@ public class AlloySword extends ItemSword implements IItemColor{
 			value = value / r.nextInt((int) Math.pow(num, 1.0 / 4.0));
 			return value;
 		}
-		return 1.0D;
+		return 1.0D;*/
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+			int num = stack.getTagCompound().getInteger("INGOT_DATA");
+			Random r = new Random(num + toInt("efficiency"));
+			return (float) ((1.0F * Math.log(num)) * (r.nextFloat()) - 3 - r.nextFloat());
+		}
+		return 1.0F;
 	}
 
 	private double getDamageVsEntity(ItemStack stack) {

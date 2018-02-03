@@ -328,6 +328,12 @@ public class CraftingHandler {
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:et_sword"), new ResourceLocation("custom_recipes"), EnchSwordEterixud, new Object[]{" I ", " I ", " S ", 'I', "ingotEterixud", 'S', Items.STICK});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:no_sword"), new ResourceLocation("custom_recipes"), EnchSwordNowyvio, new Object[]{" I ", " I ", " S ", 'I', "ingotNowyvio", 'S', Items.STICK});
 		
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre1"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyIngot), new Object[]{"II ", "   ", "   ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1)});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre2"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyPickaxe), new Object[]{"III", " S ", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre3"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyAxe), new Object[]{" II", " SI", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre4"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyShovel), new Object[]{" I ", " S ", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre5"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloySword), new Object[]{" I ", " I ", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
+		
 		
 		GameRegistry.addSmelting(ItemHandler.AikarDust, new ItemStack(ItemHandler.AikarIngot), 1.0F);
 		GameRegistry.addSmelting(ItemHandler.AociDust, new ItemStack(ItemHandler.AociIngot), 1.0F);

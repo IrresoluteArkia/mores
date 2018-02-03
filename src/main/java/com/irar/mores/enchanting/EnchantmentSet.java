@@ -75,6 +75,15 @@ public class EnchantmentSet {
 		int triesLeft = 10;
 		while(triesLeft > 0) {
 			Enchantment enchantment = getRandomWeighted(r, swordEnchants);
+			if(enchantment.equals(Enchantments.SHARPNESS) || enchantment.equals(Enchantments.SMITE) || enchantment.equals(Enchantments.BANE_OF_ARTHROPODS)) {
+				if(enchantments.containsKey(Enchantments.SHARPNESS)) {
+					enchantment = Enchantments.SHARPNESS;
+				}else if(enchantments.containsKey(Enchantments.SMITE)) {
+					enchantment = Enchantments.SMITE;
+				}else if(enchantments.containsKey(Enchantments.BANE_OF_ARTHROPODS)) {
+					enchantment = Enchantments.BANE_OF_ARTHROPODS;
+				}
+			}
 			if(enchantment.isCurse()) {
 				if(!(r.nextInt(10) == 1)) {
 					triesLeft--;
@@ -92,7 +101,7 @@ public class EnchantmentSet {
 				if(enchantment.getMaxLevel() == 1) {
 					swordEnchants.remove(enchantment);
 				}else {
-					swordEnchants.put(enchantment, price * 2);
+					swordEnchants.put(enchantment, price * 3);
 				}
 			}else {
 				triesLeft--;
@@ -132,7 +141,7 @@ public class EnchantmentSet {
 				if(enchantment.getMaxLevel() == 1) {
 					toolEnchants.remove(enchantment);
 				}else {
-					toolEnchants.put(enchantment, price * 2);
+					toolEnchants.put(enchantment, price * 3);
 				}
 			}else {
 				triesLeft--;

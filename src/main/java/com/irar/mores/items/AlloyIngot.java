@@ -1,23 +1,36 @@
 package com.irar.mores.items;
 
 import java.awt.Color;
+import java.util.List;
 import java.util.Random;
 
 import com.irar.mores.handlers.ItemHandler;
 import com.irar.mores.name.AlloyName;
 
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import scala.Char;
 
 public class AlloyIngot extends ItemIngot implements IItemColor{
 
 	public AlloyIngot(String name) {
 		super(name);
+		this.setHasSubtypes(true);
 	}
 
+	@Override
+    public void addInformation(ItemStack stack, World player, List<String> list, ITooltipFlag par4)
+    {
+		if(stack.getMetadata() == 1) {
+			list.add("EXAMPLE RECIPE");
+		}
+		super.addInformation(stack, player, list, par4);
+    }
+	
 	@Override
 	public int getColorFromItemstack(ItemStack stack, int tintIndex) {
         return tintIndex > 0 ? -1 : getColor(stack);

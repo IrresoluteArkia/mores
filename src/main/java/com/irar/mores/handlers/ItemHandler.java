@@ -603,6 +603,10 @@ public class ItemHandler {
 	public static void registerRender(Item item){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		
+		if(item.getHasSubtypes()) {
+			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 1, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
+		
 		if(item instanceof IItemColor) {
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) item, item);
 		}

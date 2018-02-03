@@ -146,7 +146,7 @@ public abstract class AlloyTool extends ItemTool implements IItemColor{
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			int num = stack.getTagCompound().getInteger("INGOT_DATA");
 			Random r = new Random(num + toInt("efficiency"));
-			return 1.0F + (num / 50.0F) + (r.nextFloat() * num / 10.0F);
+			return (float) ((1.0F * Math.log(num)) * (r.nextFloat()));
 		}
 		return 1.0F;
 	}
@@ -156,7 +156,7 @@ public abstract class AlloyTool extends ItemTool implements IItemColor{
 		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			int num = stack.getTagCompound().getInteger("INGOT_DATA");
 			Random r = new Random(num + toInt("damage"));
-			return Math.max(10, (num * 100) + r.nextInt(200) - 100);
+			return Math.max(10, (num * 10) + r.nextInt(200) - 100);
 		}
 		return 1;
 	}
@@ -183,17 +183,23 @@ public abstract class AlloyTool extends ItemTool implements IItemColor{
 
 	private double getAttackSpeed(ItemStack stack) {
 		//TODO: optimize this
-		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+		/*if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 			int num = stack.getTagCompound().getInteger("INGOT_DATA");
 			Random r = new Random(num + toInt("attackspeed"));
 			num = Math.max(num, 1);
 			double value = 1.0D;
 			double rand = r.nextDouble();
-			value = value + (rand - rand / 2);
+			value = value + (rand - (rand / 2.0));
 			value = value / r.nextInt((int) Math.pow(num, 1.0 / 4.0));
 			return value;
 		}
-		return 1.0D;
+		return 1.0D;*/
+		if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+			int num = stack.getTagCompound().getInteger("INGOT_DATA");
+			Random r = new Random(num + toInt("efficiency"));
+			return (float) ((1.0F * Math.log(num)) * (r.nextFloat()) - 3 - r.nextFloat());
+		}
+		return 1.0F;
 	}
 
 	private double getDamageVsEntity(ItemStack stack) {
