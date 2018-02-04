@@ -6,11 +6,15 @@ import java.util.List;
 import java.util.Random;
 
 import com.google.common.collect.Lists;
+import com.irar.mores.handlers.ItemHandler;
+import com.irar.mores.items.AlloyArmor;
+import com.irar.mores.items.AlloyBow;
 import com.irar.mores.items.AlloySword;
 import com.irar.mores.items.AlloyTool;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Enchantments;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class EnchantmentSet {
@@ -18,6 +22,11 @@ public class EnchantmentSet {
 	private static final HashMap<Enchantment, Integer> toolEnchants = new HashMap<>();
 	private static final HashMap<Enchantment, Integer> enchantWeights = new HashMap<>();
 	private static final HashMap<Enchantment, Integer> swordEnchants = new HashMap<>();
+	private static final HashMap<Enchantment, Integer> bowEnchants = new HashMap<>();
+	private static final HashMap<Enchantment, Integer> armorEnchants = new HashMap<>();
+	private static final HashMap<Enchantment, Integer> helmetEnchants = new HashMap<>();
+	private static final HashMap<Enchantment, Integer> bootsEnchants = new HashMap<>();
+	
 	static {
 		toolEnchants.put(Enchantments.VANISHING_CURSE, -300);
 		toolEnchants.put(Enchantments.EFFICIENCY, 5);
@@ -38,6 +47,31 @@ public class EnchantmentSet {
 		swordEnchants.put(Enchantments.SHARPNESS, 20);
 		swordEnchants.put(Enchantments.UNBREAKING, 20);
 		
+		bowEnchants.put(Enchantments.UNBREAKING, 20);
+		bowEnchants.put(Enchantments.MENDING, 200);
+		bowEnchants.put(Enchantments.VANISHING_CURSE, -300);
+		bowEnchants.put(Enchantments.FLAME, 50);
+		bowEnchants.put(Enchantments.INFINITY, 200);
+		bowEnchants.put(Enchantments.POWER, 20);
+		bowEnchants.put(Enchantments.PUNCH, 60);
+		
+		armorEnchants.put(Enchantments.BLAST_PROTECTION, 50);
+		armorEnchants.put(Enchantments.BINDING_CURSE, -300);
+		armorEnchants.put(Enchantments.VANISHING_CURSE, -300);
+		armorEnchants.put(Enchantments.FIRE_PROTECTION, 50);
+		armorEnchants.put(Enchantments.MENDING, 200);
+		armorEnchants.put(Enchantments.PROJECTILE_PROTECTION, 50);
+		armorEnchants.put(Enchantments.PROTECTION, 100);
+		armorEnchants.put(Enchantments.THORNS, 110);
+		armorEnchants.put(Enchantments.UNBREAKING, 40);
+		
+		bootsEnchants.put(Enchantments.DEPTH_STRIDER, 40);
+		bootsEnchants.put(Enchantments.FEATHER_FALLING, 40);
+		bootsEnchants.put(Enchantments.FROST_WALKER, 40);
+		
+		helmetEnchants.put(Enchantments.AQUA_AFFINITY, 40);
+		helmetEnchants.put(Enchantments.RESPIRATION, 40);
+		
 		enchantWeights.put(Enchantments.VANISHING_CURSE, 2);
 		enchantWeights.put(Enchantments.EFFICIENCY, 20);
 		enchantWeights.put(Enchantments.FORTUNE, 6);
@@ -51,6 +85,21 @@ public class EnchantmentSet {
 		enchantWeights.put(Enchantments.SMITE, 2);
 		enchantWeights.put(Enchantments.SWEEPING, 4);
 		enchantWeights.put(Enchantments.KNOCKBACK, 5);
+		enchantWeights.put(Enchantments.FLAME, 4);
+		enchantWeights.put(Enchantments.INFINITY, 2);
+		enchantWeights.put(Enchantments.POWER, 10);
+		enchantWeights.put(Enchantments.PUNCH, 12);
+		enchantWeights.put(Enchantments.BLAST_PROTECTION, 3);
+		enchantWeights.put(Enchantments.BINDING_CURSE, 2);
+		enchantWeights.put(Enchantments.FIRE_PROTECTION, 3);
+		enchantWeights.put(Enchantments.PROJECTILE_PROTECTION, 5);
+		enchantWeights.put(Enchantments.PROTECTION, 4);
+		enchantWeights.put(Enchantments.THORNS, 3);
+		enchantWeights.put(Enchantments.DEPTH_STRIDER, 3);
+		enchantWeights.put(Enchantments.FEATHER_FALLING, 5);
+		enchantWeights.put(Enchantments.FROST_WALKER, 1);
+		enchantWeights.put(Enchantments.AQUA_AFFINITY, 4);
+		enchantWeights.put(Enchantments.RESPIRATION, 2);
 	}
 	
 	private HashMap<Enchantment, Integer> enchantments = new HashMap<>();
@@ -66,6 +115,103 @@ public class EnchantmentSet {
 				this.enchantments = getSwordEnchantments(stack.getTagCompound().getInteger("INGOT_DATA"));
 			}
 		}
+		if(stack.getItem() instanceof AlloyBow) {
+			if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+				this.enchantments = getBowEnchantments(stack.getTagCompound().getInteger("INGOT_DATA"));
+			}
+		}
+		if(stack.getItem() instanceof AlloyArmor) {
+			if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+				this.enchantments = getArmorEnchantments(stack.getItem(), stack.getTagCompound().getInteger("INGOT_DATA"));
+			}
+		}
+	}
+
+	private HashMap<Enchantment, Integer> getArmorEnchantments(Item item, int value) {
+		HashMap<Enchantment, Integer> armorEnchants = (HashMap<Enchantment, Integer>) EnchantmentSet.armorEnchants.clone();
+		if(item.equals(ItemHandler.AlloyBoots)) {
+			bootsEnchants.forEach((ench, val) -> {
+				armorEnchants.put(ench, val);
+			});
+		}
+		if(item.equals(ItemHandler.AlloyHelmet)) {
+			helmetEnchants.forEach((ench, val) -> {
+				armorEnchants.put(ench, val);
+			});
+		}
+		Random r = new Random(value);
+		HashMap<Enchantment, Integer> enchantments = new HashMap<>();
+		int triesLeft = 10;
+		while(triesLeft > 0) {
+			Enchantment enchantment = getRandomWeighted(r, armorEnchants);
+			if(enchantment.equals(Enchantments.FIRE_PROTECTION) || enchantment.equals(Enchantments.BLAST_PROTECTION) || enchantment.equals(Enchantments.PROJECTILE_PROTECTION) || enchantment.equals(Enchantments.PROTECTION)) {
+				if(enchantments.containsKey(Enchantments.FIRE_PROTECTION)) {
+					enchantment = Enchantments.FIRE_PROTECTION;
+				}else if(enchantments.containsKey(Enchantments.BLAST_PROTECTION)) {
+					enchantment = Enchantments.BLAST_PROTECTION;
+				}else if(enchantments.containsKey(Enchantments.PROJECTILE_PROTECTION)) {
+					enchantment = Enchantments.PROJECTILE_PROTECTION;
+				}else if(enchantments.containsKey(Enchantments.PROTECTION)) {
+					enchantment = Enchantments.PROTECTION;
+				}
+			}
+			if(enchantment.isCurse()) {
+				if(!(r.nextInt(10) == 1)) {
+					triesLeft--;
+					continue;
+				}
+			}
+			int price = armorEnchants.get(enchantment);
+			if(value > price) {
+				value -= price;
+				if(enchantments.containsKey(enchantment)) {
+					enchantments.put(enchantment, enchantments.get(enchantment) + 1);
+				}else {
+					enchantments.put(enchantment, 1);
+				}
+				if(enchantment.getMaxLevel() == 1) {
+					armorEnchants.remove(enchantment);
+				}else {
+					armorEnchants.put(enchantment, price * 3);
+				}
+			}else {
+				triesLeft--;
+			}
+		}
+		return enchantments;
+	}
+
+	private HashMap<Enchantment, Integer> getBowEnchantments(int value) {
+		HashMap<Enchantment, Integer> bowEnchants = (HashMap<Enchantment, Integer>) EnchantmentSet.bowEnchants.clone();
+		Random r = new Random(value);
+		HashMap<Enchantment, Integer> enchantments = new HashMap<>();
+		int triesLeft = 10;
+		while(triesLeft > 0) {
+			Enchantment enchantment = getRandomWeighted(r, bowEnchants);
+			if(enchantment.isCurse()) {
+				if(!(r.nextInt(10) == 1)) {
+					triesLeft--;
+					continue;
+				}
+			}
+			int price = bowEnchants.get(enchantment);
+			if(value > price) {
+				value -= price;
+				if(enchantments.containsKey(enchantment)) {
+					enchantments.put(enchantment, enchantments.get(enchantment) + 1);
+				}else {
+					enchantments.put(enchantment, 1);
+				}
+				if(enchantment.getMaxLevel() == 1) {
+					bowEnchants.remove(enchantment);
+				}else {
+					bowEnchants.put(enchantment, price * 3);
+				}
+			}else {
+				triesLeft--;
+			}
+		}
+		return enchantments;
 	}
 
 	private HashMap<Enchantment, Integer> getSwordEnchantments(int value) {

@@ -1,0 +1,7 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "mores:items/alloy_bow_pulling_2",
+        "layer1": "mores:items/alloy_bow_pulling_2_overlay"
+    }
+}

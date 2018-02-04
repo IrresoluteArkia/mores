@@ -127,7 +127,7 @@ public abstract class AlloyTool extends ItemTool implements IItemColor{
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
     {
-    	if(toRepair.hasTagCompound() && toRepair.getTagCompound().hasKey("INGOT_DATA")) {
+    	if(toRepair.getItem() instanceof AlloyTool && repair.getItem() instanceof AlloyIngot && toRepair.hasTagCompound() && toRepair.getTagCompound().hasKey("INGOT_DATA")) {
     		if(repair.hasTagCompound() && repair.getTagCompound().hasKey("INGOT_DATA")) {
     			if(toRepair.getTagCompound().getInteger("INGOT_DATA") == repair.getTagCompound().getInteger("INGOT_DATA")) {
     				return true;

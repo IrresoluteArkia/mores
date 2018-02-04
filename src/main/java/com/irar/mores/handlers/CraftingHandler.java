@@ -208,6 +208,11 @@ public class CraftingHandler {
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 2, 5}, new int[] {4, 7}, ItemHandler.AlloyAxe));
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 3}, new int[] {4, 7}, ItemHandler.AlloyAxe));
 		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 4}, new int[] {7}, ItemHandler.AlloySword));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {1, 3, 7}, new int[] {2, 5, 8}, ItemHandler.AlloyBow));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 2, 3, 5}, new int[] {}, ItemHandler.AlloyHelmet));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 2, 3, 4, 5, 6, 7, 8}, new int[] {}, ItemHandler.AlloyChestplate));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {0, 1, 2, 3, 5, 6, 8}, new int[] {}, ItemHandler.AlloyLeggings));
+		ForgeRegistries.RECIPES.register(new ToolCrafting(new int[] {3, 5, 6, 8}, new int[] {}, ItemHandler.AlloyBoots));
 		
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.PhantomOre), new Object[]{"PP", "PP", 'P', ItemHandler.PhantomShard});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:ph_ore2"), new ResourceLocation("custom_recipes"), new ItemStack(BlockHandler.NetherPhantomOre), new Object[]{" P ", "PNP", " P ", 'P', ItemHandler.PhantomShard, 'N', Blocks.NETHERRACK});
@@ -333,6 +338,11 @@ public class CraftingHandler {
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre3"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyAxe), new Object[]{" II", " SI", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre4"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyShovel), new Object[]{" I ", " S ", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
 		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre5"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloySword), new Object[]{" I ", " I ", " S ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STICK});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre6"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyBow), new Object[]{" IS", "I S", " IS", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1), 'S', Items.STRING});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre7"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyHelmet), new Object[]{"III", "I I", "   ", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1)});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre8"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyChestplate), new Object[]{"I I", "III", "III", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1)});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre9"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyLeggings), new Object[]{"III", "I I", "I I", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1)});
+		GameRegistry.addShapedRecipe(new ResourceLocation("mores:exre10"), new ResourceLocation("custom_recipes"), new ItemStack(ItemHandler.AlloyBoots), new Object[]{"   ", "I I", "I I", 'I', new ItemStack(ItemHandler.AlloyIngot, 1, 1)});
 		
 		
 		GameRegistry.addSmelting(ItemHandler.AikarDust, new ItemStack(ItemHandler.AikarIngot), 1.0F);

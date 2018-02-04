@@ -3,6 +3,7 @@ package com.irar.mores.handlers;
 
 import java.util.ArrayList;
 
+import com.irar.mores.items.AlloyArmor;
 import com.irar.mores.items.ItemIngot;
 import com.irar.mores.items.MtlAxe;
 import com.irar.mores.items.MtlPickaxe;
@@ -16,6 +17,7 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
@@ -212,6 +214,11 @@ public class ItemHandler {
 	public static Item AlloyShovel;
 	public static Item AlloyAxe;
 	public static Item AlloySword;
+	public static Item AlloyBow;
+	public static Item AlloyHelmet;
+	public static Item AlloyChestplate;
+	public static Item AlloyLeggings;
+	public static Item AlloyBoots;
 	
 	public static void init(){
 		PhantomShard = new ItemIngot("phantom_shard");
@@ -394,6 +401,11 @@ public class ItemHandler {
 		AlloyShovel = new com.irar.mores.items.AlloyShovel("alloy_shovel");
 		AlloyAxe = new com.irar.mores.items.AlloyAxe("alloy_axe");
 		AlloySword = new com.irar.mores.items.AlloySword("alloy_sword");
+		AlloyBow = new com.irar.mores.items.AlloyBow("alloy_bow");
+		AlloyHelmet = new AlloyArmor("alloy_helmet", EntityEquipmentSlot.HEAD, "Helmet");
+		AlloyChestplate = new AlloyArmor("alloy_chestplate", EntityEquipmentSlot.CHEST, "Chestplate");
+		AlloyLeggings = new AlloyArmor("alloy_leggings", EntityEquipmentSlot.LEGS, "Leggings");
+		AlloyBoots = new AlloyArmor("alloy_boots", EntityEquipmentSlot.FEET, "Boots");
 		
 		allItems.add(PhantomShard);
 		 allItems.add(BlackHoleFragment);
@@ -575,6 +587,11 @@ public class ItemHandler {
 		 allItems.add(AlloyShovel);
 		 allItems.add(AlloyAxe);
 		 allItems.add(AlloySword);
+		 allItems.add(AlloyBow);
+		 allItems.add(AlloyHelmet);
+		 allItems.add(AlloyChestplate);
+		 allItems.add(AlloyLeggings);
+		 allItems.add(AlloyBoots);
 		 
 		 if(Loader.isModLoaded("iron")){
 			 DetriminiumSword = new MtlSword("detriminium_sword", ToolMaterialHandler.DETRIMINIUM);

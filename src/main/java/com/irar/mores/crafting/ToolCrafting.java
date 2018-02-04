@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.irar.mores.Ref;
 import com.irar.mores.handlers.ItemHandler;
+import com.irar.mores.items.AlloyArmor;
+import com.irar.mores.items.AlloyBow;
 import com.irar.mores.items.AlloyIngot;
 import com.irar.mores.items.AlloyPickaxe;
 import com.irar.mores.items.AlloySword;
@@ -14,6 +16,7 @@ import com.irar.mores.items.ItemIngot;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
@@ -67,8 +70,14 @@ public class ToolCrafting implements IRecipe{
 			}
 		}
 		for(int i : sticks) {
-			if(!inv.getStackInSlot(i).getItem().equals(Items.STICK)) {
-				return false;
+			if(result instanceof AlloyBow) {
+				if(!inv.getStackInSlot(i).getItem().equals(Items.STRING)) {
+					return false;
+				}
+			}else {
+				if(!inv.getStackInSlot(i).getItem().equals(Items.STICK)) {
+					return false;
+				}
 			}
 		}
 		for(int i : air) {
@@ -87,6 +96,10 @@ public class ToolCrafting implements IRecipe{
 			return AlloyTool.withValue((AlloyTool) result, value);
 		}else if(result instanceof AlloySword) {
 			return AlloySword.withValue((AlloySword) result, value);
+		}else if(result instanceof AlloyBow) {
+			return AlloyBow.withValue(value);
+		}else if(result instanceof AlloyArmor) {
+			return AlloyArmor.withValue((AlloyArmor) result, value);
 		}else {
 			return ItemStack.EMPTY;
 		}
