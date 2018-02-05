@@ -2,15 +2,18 @@ package com.irar.mores.proxy;
 
 
 import com.irar.mores.handlers.BlockHandler;
+import com.irar.mores.handlers.CMRegisterHandler;
 import com.irar.mores.handlers.CraftingHandler;
 import com.irar.mores.handlers.ItemHandler;
 import com.irar.mores.handlers.OreDictHandler;
 import com.irar.mores.items.AlloyBow;
 import com.irar.mores.world.WorldGenOre;
 
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -29,6 +32,9 @@ public class CommonProxy implements IProxy{
 		
 		OreDictHandler.init();
 		
+		CMRegisterHandler.init();
+
+
 	}
 
 	@Override
