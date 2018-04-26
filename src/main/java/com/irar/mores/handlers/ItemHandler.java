@@ -219,6 +219,7 @@ public class ItemHandler {
 	public static Item AlloyChestplate;
 	public static Item AlloyLeggings;
 	public static Item AlloyBoots;
+	public static Item AlloyArrow;
 	
 	public static void init(){
 		PhantomShard = new ItemIngot("phantom_shard");
@@ -406,6 +407,7 @@ public class ItemHandler {
 		AlloyChestplate = new AlloyArmor("alloy_chestplate", EntityEquipmentSlot.CHEST, "Chestplate");
 		AlloyLeggings = new AlloyArmor("alloy_leggings", EntityEquipmentSlot.LEGS, "Leggings");
 		AlloyBoots = new AlloyArmor("alloy_boots", EntityEquipmentSlot.FEET, "Boots");
+		AlloyArrow = new com.irar.mores.items.AlloyArrow("alloy_arrow");
 		
 		allItems.add(PhantomShard);
 		 allItems.add(BlackHoleFragment);
@@ -592,6 +594,7 @@ public class ItemHandler {
 		 allItems.add(AlloyChestplate);
 		 allItems.add(AlloyLeggings);
 		 allItems.add(AlloyBoots);
+		 allItems.add(AlloyArrow);
 		 
 		 if(Loader.isModLoaded("iron")){
 			 DetriminiumSword = new MtlSword("detriminium_sword", ToolMaterialHandler.DETRIMINIUM);

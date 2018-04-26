@@ -7,6 +7,7 @@ import com.irar.mores.handlers.CraftingHandler;
 import com.irar.mores.handlers.ItemHandler;
 import com.irar.mores.handlers.OreDictHandler;
 import com.irar.mores.items.AlloyBow;
+import com.irar.mores.util.ArrowActions;
 import com.irar.mores.world.WorldGenOre;
 
 import net.minecraft.item.ItemStack;
@@ -27,6 +28,9 @@ public class CommonProxy implements IProxy{
 		
 		BlockHandler.init();
 		BlockHandler.register();
+		
+		ArrowActions.init();
+		ArrowActions.register();
 		
 		GameRegistry.registerWorldGenerator(new WorldGenOre(), 0);
 		

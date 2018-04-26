@@ -6,6 +6,7 @@ import java.util.List;
 import com.irar.mores.Ref;
 import com.irar.mores.handlers.ItemHandler;
 import com.irar.mores.items.AlloyArmor;
+import com.irar.mores.items.AlloyArrow;
 import com.irar.mores.items.AlloyBow;
 import com.irar.mores.items.AlloyIngot;
 import com.irar.mores.items.AlloyPickaxe;
@@ -100,6 +101,8 @@ public class ToolCrafting implements IRecipe{
 			return AlloyBow.withValue(value);
 		}else if(result instanceof AlloyArmor) {
 			return AlloyArmor.withValue((AlloyArmor) result, value);
+		}else if(result instanceof AlloyArrow) {
+			return AlloyArrow.withValue(value);
 		}else {
 			return ItemStack.EMPTY;
 		}
