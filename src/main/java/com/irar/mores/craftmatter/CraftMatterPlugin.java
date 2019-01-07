@@ -44,6 +44,27 @@ public class CraftMatterPlugin implements IModPlugin{
 			@Override
 			public int getValueFor(ItemStack stack) {
 				if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
+					return stack.getTagCompound().getInteger("INGOT_DATA") / 16;
+				}
+				return 0;
+			}
+
+			@Override
+			public boolean hasValueFor(ItemStack stack) {
+				return stack.getItem().equals(ItemHandler.AlloyArrow);
+			}
+
+			@Override
+			public Item getItemFor() {
+				return ItemHandler.AlloyArrow;
+			}
+			
+		});
+		registry.register(new ICustomValue() {
+
+			@Override
+			public int getValueFor(ItemStack stack) {
+				if(stack.hasTagCompound() && stack.getTagCompound().hasKey("INGOT_DATA")) {
 					return stack.getTagCompound().getInteger("INGOT_DATA") * 6 + 2;
 				}
 				return 0;
