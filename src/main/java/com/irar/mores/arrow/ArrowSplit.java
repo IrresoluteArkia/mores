@@ -29,17 +29,13 @@ public class ArrowSplit extends IArrowAction{
 		}
 		int level = this.getLevel(arrow);
 		boolean isInRange = false;
-//		Entity inRange = null;
 		List<Entity> entities = arrow.world.loadedEntityList;
 		List<EntityLivingBase> entitiesToHit = new ArrayList<>();
 		for(Entity ent : entities) {
 			double distance = WorldHelper.getDistance(arrow.world, arrow.shootingEntity, ent);
 			if(ent instanceof EntityLivingBase && !ent.equals(arrow.shootingEntity)) {
 				EntityLivingBase mob = (EntityLivingBase) ent;
-/*				if(distance <= 2 * level) {
-					inRange = mob;
-				}
-*/				if(distance <= level * 7) {
+				if(distance <= level * 7) {
 					isInRange = true;
 					entitiesToHit.add(mob);
 				}
@@ -57,15 +53,7 @@ public class ArrowSplit extends IArrowAction{
 			}
 			arrow.setPositionAndUpdate(arrow.posX, y, arrow.posZ);
 	        EntityTippedArrow subArrow = new EntityTippedArrow(arrow.world, arrow.posX, y, arrow.posZ);
-/*	        float[] py = WorldHelper.getPitchAndYawTo(arrow, mob);
-	        float pitch = py[0];
-	        float yaw = py[1];*/
 	        subArrow.setNoGravity(true);
-//	        float f = -MathHelper.sin(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
-//	        float f1 = -MathHelper.sin(pitch * 0.017453292F);
-//	        float f2 = MathHelper.cos(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
-//	        subArrow.setThrowableHeading((double)f, (double)f1, (double)f2, 0.01F, 0.0F);
-//	        subArrow.setAim(subArrow, pitch, yaw, 0.0F, 0.01F, 0.0F);
 	        subArrow.setThrowableHeading(mob.posX - subArrow.posX, mob.posY - subArrow.posY, mob.posZ - subArrow.posZ, level * 8.0F, 0.0F);
 	        subArrow.setDamage((arrow.getDamage()) / MathHelper.sqrt(subArrow.motionX * subArrow.motionX + subArrow.motionY * subArrow.motionY + subArrow.motionZ * subArrow.motionZ));
 	        subArrow.setKnockbackStrength(1);
@@ -73,6 +61,7 @@ public class ArrowSplit extends IArrowAction{
 	        	subArrow.setFire(100);
 	        }
 	        subArrow.pickupStatus = EntityArrow.PickupStatus.CREATIVE_ONLY;
+	        subArrow.shootingEntity = arrow.shootingEntity;
 	        arrow.world.spawnEntity(subArrow);
 		}
 		arrow.setDead();

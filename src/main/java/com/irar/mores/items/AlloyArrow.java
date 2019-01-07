@@ -78,7 +78,7 @@ public class AlloyArrow extends ItemArrow implements IItemColor{
 	}
 
 	public static ItemStack withValue(int value) {
-		ItemStack stack = new ItemStack(ItemHandler.AlloyArrow);
+		ItemStack stack = new ItemStack(ItemHandler.AlloyArrow, 4);
 		NBTTagCompound tag = stack.serializeNBT();
 		tag.setInteger("INGOT_DATA", value);
 		stack.setTagCompound(tag);

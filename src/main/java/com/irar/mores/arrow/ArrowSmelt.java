@@ -38,15 +38,15 @@ public class ArrowSmelt extends IArrowAction{
 		
 		World world = arrow.world;
 		
-		double x = arrow.posX;
-		double y = arrow.posY;
-		double z = arrow.posZ;
+		double x = entity.posX;
+		double y = entity.posY;
+		double z = entity.posZ;
 		
 		world.addWeatherEffect(new EntityLightningBolt(world, x, y, z, false));
 
 		for(int lev = 1; lev <= level; lev++) {
 			for(int i = 0; i < 100; i++) {
-				BlockPos pos = arrow.getPosition();
+				BlockPos pos = entity.getPosition();
 				int xSkew = MathHelper.getSkewedRandom() * lev;
 				int zSkew = MathHelper.getSkewedRandom() * lev;
 				int tx = pos.getX() + xSkew;

@@ -75,6 +75,12 @@ public class ToolCrafting implements IRecipe{
 				if(!inv.getStackInSlot(i).getItem().equals(Items.STRING)) {
 					return false;
 				}
+			}else if(result instanceof AlloyArrow){
+				if(i == 7) {
+					if(!inv.getStackInSlot(i).getItem().equals(Items.FEATHER)) {
+						return false;
+					}
+				}
 			}else {
 				if(!inv.getStackInSlot(i).getItem().equals(Items.STICK)) {
 					return false;

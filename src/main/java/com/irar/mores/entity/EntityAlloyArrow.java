@@ -1,9 +1,11 @@
 package com.irar.mores.entity;
 
+import com.irar.mores.items.AlloyArrow;
 import com.irar.mores.util.ArrowHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityTippedArrow;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
@@ -32,5 +34,10 @@ public class EntityAlloyArrow extends EntityTippedArrow{
         ArrowHelper.arrowHit(this, living);
         super.arrowHit(living);
     }
+	
+	@Override
+	protected ItemStack getArrowStack() {
+		return AlloyArrow.withValue(ingotData);
+	}
     
 }
