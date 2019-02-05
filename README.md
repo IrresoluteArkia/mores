@@ -1,4 +1,4 @@
-# (Arkia's) Mores [![CurseForge](http://cf.way2muchnoise.eu/full_arkias-mores_downloads.svg)](https://minecraft.curseforge.com/projects/arkias-mores) [![CurseForge](http://cf.way2muchnoise.eu/versions/arkias-mores.svg)](https://minecraft.curseforge.com/projects/arkias-mores)
+# (Arkia's) Mores [![CurseForge](http://cf.way2muchnoise.eu/full_arkias-mores_downloads(3D1417-14080B-B7EFF1-010101-9BA9D7).svg)](https://minecraft.curseforge.com/projects/arkias-mores) [![CurseForge](http://cf.way2muchnoise.eu/versions/Available%20for%20MC_arkias-mores_all(3D1417-14080B-B7EFF1-010101).svg)](https://minecraft.curseforge.com/projects/arkias-mores)
 
 A minecraft mod that adds 8-17 more ores to minecraft.
 
