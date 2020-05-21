@@ -3,6 +3,7 @@ package com.irar.mores.world;
 import java.util.Random;
 import java.util.function.Predicate;
 
+import com.irar.mores.config.OreSpawn;
 import com.irar.mores.handlers.BlockHandler;
 
 import net.minecraft.block.state.IBlockState;
@@ -18,19 +19,19 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenOre implements IWorldGenerator{
 
 	private void genSurface(World world, Random random, int chunkX, int chunkZ){
-		addOreSpawn(BlockHandler.PhantomOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 8, 5, 70,  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.PhantomOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.PHANTOM_VEIN_SIZE.getValue(), OreSpawn.PHANTOM_SPAWN_CHANCE.getValue(), OreSpawn.PHANTOM_MIN_Y.getValue(), OreSpawn.PHANTOM_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
 		
-		addOreSpawn(BlockHandler.AyzaniteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 10, 20, 100,  BlockMatcher.forBlock(Blocks.STONE));
-		addOreSpawn(BlockHandler.SiveniumOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 10, 20, 100,  BlockMatcher.forBlock(Blocks.STONE));
-		addOreSpawn(BlockHandler.AurineOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 4, 20, 100,  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.AyzaniteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.AYZANITE_VEIN_SIZE.getValue(), OreSpawn.AYZANITE_SPAWN_CHANCE.getValue(), OreSpawn.AYZANITE_MIN_Y.getValue(), OreSpawn.AYZANITE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.SiveniumOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.SIVENIUM_VEIN_SIZE.getValue(), OreSpawn.SIVENIUM_SPAWN_CHANCE.getValue(), OreSpawn.SIVENIUM_MIN_Y.getValue(), OreSpawn.SIVENIUM_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.AurineOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.AURINE_VEIN_SIZE.getValue(), OreSpawn.AURINE_SPAWN_CHANCE.getValue(), OreSpawn.AURINE_MIN_Y.getValue(), OreSpawn.AURINE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
 
-		addOreSpawn(BlockHandler.IturiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 1, 30, 50,  BlockMatcher.forBlock(Blocks.STONE));
-		addOreSpawn(BlockHandler.NodemiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 2, 30, 50,  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.IturiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.ITURITE_VEIN_SIZE.getValue(), OreSpawn.ITURITE_SPAWN_CHANCE.getValue(), OreSpawn.ITURITE_MIN_Y.getValue(), OreSpawn.ITURITE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.NodemiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.NODEMITE_VEIN_SIZE.getValue(), OreSpawn.NODEMITE_SPAWN_CHANCE.getValue(), OreSpawn.NODEMITE_MIN_Y.getValue(), OreSpawn.NODEMITE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
 		
-		addOreSpawn(BlockHandler.DraxateOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 1, 5, 30,  BlockMatcher.forBlock(Blocks.STONE));
-		addOreSpawn(BlockHandler.EukavoyntOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 8, 1, 5, 70,  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.DraxateOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.DRAXATE_VEIN_SIZE.getValue(), OreSpawn.DRAXATE_SPAWN_CHANCE.getValue(), OreSpawn.DRAXATE_MIN_Y.getValue(), OreSpawn.DRAXATE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.EukavoyntOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.EUKAVOYNT_VEIN_SIZE.getValue(), OreSpawn.EUKAVOYNT_SPAWN_CHANCE.getValue(), OreSpawn.EUKAVOYNT_MIN_Y.getValue(), OreSpawn.EUKAVOYNT_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
 
-		addOreSpawn(BlockHandler.BlackHoleOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 8, 1, 5, 120,  BlockMatcher.forBlock(Blocks.STONE));
+		addOreSpawn(BlockHandler.BlackHoleOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, OreSpawn.BLACKHOLE_VEIN_SIZE.getValue(), OreSpawn.BLACKHOLE_SPAWN_CHANCE.getValue(), OreSpawn.BLACKHOLE_MIN_Y.getValue(), OreSpawn.BLACKHOLE_MAX_Y.getValue(),  BlockMatcher.forBlock(Blocks.STONE));
 
 //		addOreSpawn(BlockHandler.OxaxagiteOre.getDefaultState(), world, random, chunkX, chunkZ, 16, 16, 10, 4, 10, 40,  BlockMatcher.forBlock(Blocks.STONE));
 	}
